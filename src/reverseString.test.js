@@ -15,6 +15,5 @@ test('returns single word reversed', () => {
   expect(reverseString('Howdy')).toBe('ydwoH');
 });
 test('returns composed word reversed', () => {
-  expect(reverseString('hello')).toBe('olleh');
-  expect(reverseString('Howdy')).toBe('ydwoH');
+  expect(reverseString('Greetings from Earth')).toBe('htraE morf sgniteerG');
 });

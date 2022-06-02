@@ -1,7 +1,7 @@
 const reverseString = (str) => {
-  let reversed = str.toString();
+  const string = str.toString().split('').reverse().join('');
 
-  return reversed;
+  return string;
 };
 
 export default reverseString;
