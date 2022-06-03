@@ -1,6 +1,7 @@
 const caesarCipher = (str, offset) => {
+  let tempArray = [];
   let message = str.toString();
-  message = message.split('');
+  message = message.split(' ');
 
   const alphabet = [
     'a',
@@ -37,27 +38,46 @@ const caesarCipher = (str, offset) => {
     return index;
   };
 
-  // gets message fropm index
+  // gets message from index
   const getCrypted = (index) => {
     const letter = alphabet[index];
     return letter;
   };
 
   console.log(message);
+
+  // each word is stored as an array, split them into characters
+  message.forEach((element) => {
+    tempArray.push(element.split(''));
+  });
+
+  console.log(tempArray);
+
+  tempArray.forEach((e) => e.join(''));
+  console.log(tempArray);
+
+  // joins words on a single array
+  tempArray = tempArray.reduce((prev, next) => prev.concat(next));
+  console.log('shit', tempArray);
+
   // gets current index
-  message = message.map((x) => getIndex(x));
+  tempArray = tempArray.map((e) => getIndex(e));
+  console.log(tempArray);
+
+  // add cipher
+  tempArray = tempArray.map((x) => x + offset);
+  console.log(tempArray);
+
+  // translate to chars
+  message = tempArray.map((x) => getCrypted(x));
   console.log(message);
 
-  message = message.map((x) => x + offset);
-  console.log(message);
-
-  // returns ciphered array and joins it
-  message = message.map((x) => getCrypted(x)).join('');
+  message = message.join('');
   console.log(message);
 
   return message;
 };
 
-// caesarCipher('fuck', 1);
+caesarCipher('fuck this shit', 1);
 
-export default caesarCipher;
+// export default caesarCipher;

@@ -17,7 +17,8 @@ test('returns alphabet', () => {
 });
 
 test('returns correct cipher', () => {
-  expect(caesarCipher('fuck', 1)).toMatch('gvdl');
+  expect(caesarCipher('teste', 1)).toMatch('uftuf');
+  expect(caesarCipher('teste', 2)).toMatch('vgvvu');
   expect(caesarCipher('fuck this shit', 1)).toMatch('gvdl uijt tiju');
 });
 
